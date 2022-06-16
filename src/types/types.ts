@@ -11,5 +11,5 @@ export type ButtonType = {
     disabled?: boolean;
     onMouseEnter: any;
     onMouseLeave: any;
-    id:string
+    id:string // FIXME: id: string instead of id:string
 };
