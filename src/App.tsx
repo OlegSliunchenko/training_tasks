@@ -1,45 +1,48 @@
 import React, {useState} from 'react';
 import './App.css';
-import Button from "./components/button";
-import {StyleType} from "./types/types";
+import Container from "./components/Container";
+import InboxButtonSize from "./components/CheckBox";
+import Button from "./components/Button";
+import InputComponent from "./components/InputComponent";
 
 
-function App(this: any) {
+function App() {
+    const [buttonSize, setButtonSize] = useState('sm_size');
+    const [btnState, setState] = useState(true);
+    const [color, setColor] = useState({backgroundColor: 'red',})
+    const colorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let newColor = {...color};
+        let {value} = e.target;
+        newColor.backgroundColor= value;
+        setColor(newColor)
+    }
 
-    // VARIABLES
-
-    let ButtonTitle = 'SMALL BUTTON';
-    let STYLE: StyleType = {
-        backgroundColor: 'red',
-        width: 90,
-        height: 50,
-    };
-
-
-    // STATES
-
-    let [disabled, setDisabled] = useState(false);
-    let [styleSet, setStyle] = useState(STYLE);
-
-    // HANDLERS
-
-    let ButtonHandler = () => {
-        setStyle(styleSet => {
-            let STYLE = {...styleSet};
-            if (STYLE.backgroundColor === 'red') {
-                STYLE.backgroundColor = 'blue';
-            } else {
-                STYLE.backgroundColor = 'red'
-            }
-            return STYLE
-        });
-    };
-
+    const handler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.checked && event.target.id === '1') {
+            setButtonSize( "sm_size");
+        } else if (event.target.checked && event.target.id === "2") {
+            setButtonSize("l_size");
+        } else if (event.target.checked && event.target.id === "3") {
+            setButtonSize("xl_size");
+        } else if (event.target.checked && event.target.id === "0") {
+            setState(!btnState);
+        } else if (!event.target.checked && event.target.id === "0") {
+            setState(!btnState);
+        }
+    }
     return (
-        <div className="App">
-            <Button id={'test'}  onMouseEnter={() => setDisabled(true)} onMouseLeave={() => setDisabled(false)} title={ButtonTitle} disabled={disabled} onClick={ButtonHandler}
-                    style={styleSet}/>
-        </div>
+        <Container className="App">
+
+            <InboxButtonSize checking={handler}/>
+            <InputComponent handler={colorHandler} value={color.backgroundColor}/>
+            <Button
+                color={color}
+                className={buttonSize}
+                title={'Button'}
+                onClick={() => {
+                }}
+                disabled={btnState}/>
+        </Container>
     );
 }
 

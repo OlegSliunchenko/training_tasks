@@ -1,15 +1,23 @@
+import React from "react";
+
+export interface HandlerType  {
+    checking: (e:React.ChangeEvent<HTMLInputElement>)=>void;
+}
+export type InputColorType = {
+    handler:(e:React.ChangeEvent<HTMLInputElement>)=>void,
+    value:string,
+}
 export type StyleType = {
     backgroundColor: string,
-    height?: number,
-    width?: number,
-};
-
-export type ButtonType = {
+}
+export interface ButtonType {
     title: string;
-    style: StyleType;
-    onClick: () => void;
+    color: StyleType;
+    onClick?: () => void;
     disabled?: boolean;
-    onMouseEnter: any;
-    onMouseLeave: any;
-    id:string
-};
+    className: string;
+}
+export type ContainerType = {
+    className: string;
+    children?: React.ReactNode;
+}
