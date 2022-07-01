@@ -7,7 +7,7 @@ export type InputColorType = {
     handler:(e:React.ChangeEvent<HTMLInputElement>)=>void,
     value:string,
 }
-export type StyleType = {
+export interface StyleType  {
     backgroundColor: string,
 }
 export interface ButtonType {

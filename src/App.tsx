@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import './App.css';
-import Container from "./components/Container";
-import InboxButtonSize from "./components/CheckBox";
-import Button from "./components/Button";
-import InputComponent from "./components/InputComponent";
+import ContainerClassComponent from "./classComponents/container/Container";
+import CheckBoxClassComponent from "./classComponents/checkBox/CheckBox";
+import ButtonClassComponent from "./classComponents/button/Button";
+import InputClassComponent from "./classComponents/input/InputComponent";
 
 
 function App() {
@@ -31,18 +31,18 @@ function App() {
         }
     }
     return (
-        <Container className="App">
+        <ContainerClassComponent className="App">
 
-            <InboxButtonSize checking={handler}/>
-            <InputComponent handler={colorHandler} value={color.backgroundColor}/>
-            <Button
+            <CheckBoxClassComponent checking={handler}/>
+            <InputClassComponent handler={colorHandler} value={color.backgroundColor}/>
+            <ButtonClassComponent
                 color={color}
                 className={buttonSize}
                 title={'Button'}
                 onClick={() => {
                 }}
                 disabled={btnState}/>
-        </Container>
+        </ContainerClassComponent>
     );
 }
 

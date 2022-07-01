@@ -1,4 +1,4 @@
-import {HandlerType, InputColorType} from "../types/types";
+import {InputColorType} from "../types/types";
 
 export default function InputComponent({handler, value}: InputColorType) {
     return (
