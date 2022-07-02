@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Button, CheckBox, Input, Container} from "./components";
+import {Button, CheckBox} from "@components";
 
 function App() {
     const [buttonSize, setButtonSize] = useState('sm_size');
