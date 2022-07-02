@@ -2,6 +2,7 @@ import React from "react";
 import {HandlerType} from "../types/types";
 
 export default function InboxButtonSize({checking}: HandlerType) {
+
     return (
         <div>
             <h1>Button size:</h1>
@@ -17,4 +18,4 @@ export default function InboxButtonSize({checking}: HandlerType) {
             </div>
         </div>
     );
-};
+}

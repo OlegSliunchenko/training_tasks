@@ -15,7 +15,7 @@ export interface ButtonType {
     color: StyleType;
     onClick?: () => void; // FIXME: It must accept - title, color, and handler.
     disabled?: boolean; //FIXME: It could accept - size and disable properties. What will be if i not pass this props? undefined? null? false?
-    className: string; // FIXME: reserved word!!!!!
+    buttonSize: string;
 }
 export type ContainerType = {
     className: string;
