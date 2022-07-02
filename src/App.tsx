@@ -1,11 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import ContainerClassComponent from "./classComponents/container/Container";
-import CheckBoxClassComponent from "./classComponents/checkBox/CheckBox";
-import ButtonClassComponent from "./classComponents/button/Button";
-import InputClassComponent from "./classComponents/input/InputComponent";
-
-
+import {Button, CheckBox, Input, Container} from "./components";
 
 function App() {
     const [buttonSize, setButtonSize] = useState('sm_size');
@@ -17,7 +12,6 @@ function App() {
         newColor.backgroundColor= value;
         setColor(newColor)
     }
-
     const handler = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.checked && event.target.id === '1') {
             setButtonSize( "sm_size");
@@ -31,19 +25,19 @@ function App() {
             setState(!btnState);
         }
     }
-    return (
-        <ContainerClassComponent className="App">
 
-            <CheckBoxClassComponent checking={handler}/>
-            <InputClassComponent handler={colorHandler} value={color.backgroundColor}/>
-            <ButtonClassComponent
+    return (
+        <Container className="App">
+            <CheckBox checking={handler}/>
+            <Input handler={colorHandler} value={color.backgroundColor}/>
+            <Button
                 color={color}
                 className={buttonSize}
                 title={'Button'}
                 onClick={() => {
                 }}
                 disabled={btnState}/>
-        </ContainerClassComponent>
+        </Container>
     );
 }
 
