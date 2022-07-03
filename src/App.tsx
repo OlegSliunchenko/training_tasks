@@ -1,20 +1,21 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Button, CheckBox} from "@components";
+import {Button, CheckBox, Container} from "./components";
+import {HuePicker} from 'react-color';
 
 function App() {
+    type color = {
+        hex:string
+    }
     const [buttonSize, setButtonSize] = useState('sm_size');
     const [btnState, setState] = useState(true);
-    const [color, setColor] = useState({backgroundColor: 'red',})
-    const colorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        let newColor = {...color};
-        let {value} = e.target;
-        newColor.backgroundColor= value;
-        setColor(newColor)
+    const [btnColor, setBtnColor] = useState({backgroundColor: '#fff'})
+    const colorHandler = (color: color) => {
+               setBtnColor({backgroundColor: color.hex})
     }
     const handler = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.checked && event.target.id === '1') {
-            setButtonSize( "sm_size");
+            setButtonSize("sm_size");
         } else if (event.target.checked && event.target.id === "2") {
             setButtonSize("l_size");
         } else if (event.target.checked && event.target.id === "3") {
@@ -29,9 +30,12 @@ function App() {
     return (
         <Container className="App">
             <CheckBox checking={handler}/>
-            <Input handler={colorHandler} value={color.backgroundColor}/>
+            <HuePicker
+                color={btnColor.backgroundColor}
+                onChangeComplete={colorHandler}
+            />
             <Button
-                color={color}
+                color={btnColor}
                 className={buttonSize}
                 title={'Button'}
                 onClick={() => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {ContainerType} from "@components/Container/type";
+import {ContainerType} from "./type";
 
 class ContainerClassComponent extends React.Component<ContainerType>{
     render() {

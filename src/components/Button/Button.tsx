@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import '@components/Button/style.css'
-import {ButtonType} from "@components/Button/type";
+import './style.css'
+import {ButtonType} from "./type";
 
 class ButtonClassComponent extends Component<ButtonType> {
     render() {

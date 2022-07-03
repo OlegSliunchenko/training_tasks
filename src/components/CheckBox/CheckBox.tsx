@@ -1,5 +1,5 @@
 import React from 'react';
-import {HandlerType} from "@components/CheckBox/type";
+import {HandlerType} from "./type";
 
 class CheckBoxClassComponent extends React.Component<HandlerType> {
     render() {
