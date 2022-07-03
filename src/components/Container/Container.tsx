@@ -1,5 +1,5 @@
 import React from 'react';
-import {ContainerType} from "../types/types";
+import {ContainerType} from "./type";
 
 export default function Container(props:ContainerType) {
     const {className, children} = props;

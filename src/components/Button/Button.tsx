@@ -1,9 +1,9 @@
 import React from 'react';
-import {ButtonType} from "../types/types";
-import '../CSS/button.css'
+import {ButtonType} from "./type";
+import './style.css'
 
 export default function Button(props: ButtonType) {
-const {color, onClick, disabled, buttonSize, title} = props;
+const {color, onClick, disabled = true, buttonSize, title} = props;
 
     return (
         <button

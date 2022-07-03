@@ -1,30 +1,23 @@
 import React, {useState} from 'react';
-// FIXME: use tsconfig to create module system
-// FIXME: and than use @components/blahBlah
 import './App.css';
-import Container from "./components/Container";
-import InboxButtonSize from "./components/CheckBox";
-import Button from "./components/Button";
-import InputComponent from "./components/InputComponent";
-
+import {Button, CheckBox, Container} from './components';
+import {ButtonSize} from "./utils/enum";
+import {HuePicker} from "react-color";
 
 function App() {
-    const [buttonSize, setButtonSize] = useState('sm_size'.toLowerCase);
+    const [buttonSize, setButtonSize] = useState('sm_size');
     const [btnState, setState] = useState(true);
-    const [color, setColor] = useState({backgroundColor: 'red'});
-    const colorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        let newColor = {...color};
-        let {value} = e.target;
-        newColor.backgroundColor = value;
-        setColor(newColor)
+    const [color, setColor] = useState({backgroundColor: '#fff'});
+    const colorHandler = (color: any) => {
+        setColor({backgroundColor: color.hex})
     };
     const handler = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.checked && event.target.id === '1') {
-            setButtonSize("sm_size".toLowerCase);
+            setButtonSize(ButtonSize.small);
         } else if (event.target.checked && event.target.id === "2") {
-            setButtonSize("l_size".toLowerCase);
+            setButtonSize(ButtonSize.large);
         } else if (event.target.checked && event.target.id === "3") {
-            setButtonSize("xl_size".toLowerCase);
+            setButtonSize(ButtonSize.XL_size);
         } else if (event.target.checked && event.target.id === "0") {
             setState(!btnState);
         } else if (!event.target.checked && event.target.id === "0") {
@@ -33,16 +26,20 @@ function App() {
     };
 
     return (
-
         <Container className="App">
-            <InboxButtonSize checking={handler}/>
-            <InputComponent handler={colorHandler} value={color.backgroundColor}/>
+            <CheckBox checking={handler}/>
+            <HuePicker
+                color={color.backgroundColor}
+                onChangeComplete={colorHandler}
+            />
             <Button
                 color={color}
                 buttonSize={buttonSize}
                 title={'Button'}
-                onClick={() => {}}
-                disabled={btnState}/>
+                onClick={() => {
+                }}
+                disabled={btnState}
+            />
         </Container>
     );
 }

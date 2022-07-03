@@ -1,5 +1,5 @@
 import React from "react";
-import {HandlerType} from "../types/types";
+import {HandlerType} from "./type";
 
 export default function InboxButtonSize({checking}: HandlerType) {
 
