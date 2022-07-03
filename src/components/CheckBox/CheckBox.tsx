@@ -1,6 +1,7 @@
 import React from 'react';
 import {HandlerType} from "./type";
 
+// TODO: Pls read about React.Component vs React.PureComponent
 class CheckBoxClassComponent extends React.Component<HandlerType> {
     render() {
         const {checking} = this.props;
@@ -15,6 +16,7 @@ class CheckBoxClassComponent extends React.Component<HandlerType> {
                     <label>XL Size:</label>
                     <input type="radio" id="3" name="topping" value="XL Size" onChange={checking}/>
                     <label>ActiveButton:</label>
+                    {/*FIXME: there 'name' must be different. This is not a radio group anymore */}
                     <input type="checkbox" id="0" name="topping" value="disabled" onChange={checking}/>
                 </div>
             </div>
