@@ -5,11 +5,14 @@ import {ButtonSize} from "./utils/enum";
 import {HuePicker} from "react-color";
 
 function App() {
+    type color = {
+        hex: string
+    }
     const [buttonSize, setButtonSize] = useState('sm_size');
     const [btnState, setState] = useState(true);
-    const [color, setColor] = useState({backgroundColor: '#fff'});
-    const colorHandler = (color: any) => {
-        setColor({backgroundColor: color.hex})
+    const [btnColor, setBtnColor] = useState({backgroundColor: '#fff'});
+    const colorHandler = (color: color) => {
+        setBtnColor({backgroundColor: color.hex})
     };
     const handler = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.checked && event.target.id === '1') {
@@ -29,11 +32,11 @@ function App() {
         <Container className="App">
             <CheckBox checking={handler}/>
             <HuePicker
-                color={color.backgroundColor}
+                color={btnColor.backgroundColor}
                 onChangeComplete={colorHandler}
             />
             <Button
-                color={color}
+                color={btnColor}
                 buttonSize={buttonSize}
                 title={'Button'}
                 onClick={() => {
