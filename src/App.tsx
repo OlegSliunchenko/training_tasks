@@ -8,6 +8,7 @@ function App() {
     type color = {
         hex: string
     }
+    // FIXME: pls read about 'useReducer' hook instead of using three 'useState' you can use one 'useReducer'
     const [buttonSize, setButtonSize] = useState('sm_size');
     const [btnState, setState] = useState(true);
     const [btnColor, setBtnColor] = useState({backgroundColor: '#fff'});

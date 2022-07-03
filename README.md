@@ -50,6 +50,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 Write Button component.
 - [ ] It could be in only three sizes: SM, M, and XL.
 - [x] It could be enabled or disabled.
-- [ ] It must accept - title, color, and handler.
-- [ ] It could accept - size and disable properties.
-- [ ] You must use TS. Implement it in two ways: classic way - class and modern - functional component.
+- [x] It must accept - title, color, and handler.
+- [x] It could accept - size and disable properties.
+- [x] You must use TS. Implement it in two ways: classic way - class and modern - functional component.
