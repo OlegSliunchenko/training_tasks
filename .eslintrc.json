@@ -72,6 +72,8 @@
     "simple-import-sort"
   ],
   "rules": {
+    "comma-dangle": ["error", "never"],
+    "indent": [0, 2],
     "require-jsdoc" : 0,
     "semi": [
       "error",

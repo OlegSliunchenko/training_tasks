@@ -7,7 +7,7 @@ import './style.css';
 class ButtonClassComponent extends Component<ButtonType> {
   render() {
     const {onClick, color, disabled, btnSize, title} = this.props;
-    // FIXME: If you have single element () is redundant
+
     return (
       <button
         onClick={onClick}

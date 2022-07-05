@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {ColorResult, HuePicker} from 'react-color';
 
 import {ButtonSizingEnum} from './utils/enum';
@@ -6,44 +6,70 @@ import {Button, CheckBox, Container} from './components';
 
 import './App.css';
 
-// FIXME: pls use class App(){} instead of function App(){}
-function App() {
-  const [buttonSize, setButtonSize] = useState(ButtonSizingEnum.small);
-  const [btnState, setState] = useState(true);
-  const [btnColor, setBtnColor] = useState({background: '#fff'});
-  const colorHandler = (color: ColorResult) => {
-    setBtnColor({background: color.hex});
+type stateType = {
+  buttonSize: string;
+  btnState: boolean;
+  btnColor: object;
+};
+
+class App extends React.Component<{}, stateType> {
+  state = {
+    buttonSize: ButtonSizingEnum.small,
+    btnState: true,
+    btnColor: {background: '#fff'}
   };
-  const sizeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+  colorHandler = (color: ColorResult) => {
+    this.setState((state: any) => ({
+      btnColor: {background: color.hex}
+    }));
+  };
+
+  sizeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     switch (event.target.id) {
       case '1':
-        return setButtonSize(ButtonSizingEnum.small);
+        return this.setState((state: stateType) => ({
+          buttonSize: ButtonSizingEnum.small
+        }));
       case '2':
-        return setButtonSize(ButtonSizingEnum.large);
+        return this.setState((state: stateType) => ({
+          buttonSize: ButtonSizingEnum.large
+        }));
       case '3':
-        return setButtonSize(ButtonSizingEnum.xl);
-    }
-  };
-  const activityHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    switch (event.target.id) {
-      case '0':
-        return setState(!btnState);
+        return this.setState((state: stateType) => ({
+          buttonSize: ButtonSizingEnum.xl
+        }));
     }
   };
 
-  return (
-    <Container divStyle="App">
-      <CheckBox checking={sizeHandler} activateBtn={activityHandler} />
-      <HuePicker color={btnColor.background} onChangeComplete={colorHandler} />
-      <Button
-        color={btnColor}
-        btnSize={buttonSize}
-        title={'Button'}
-        onClick={() => {}}
-        disabled={btnState}
-      />
-    </Container>
-  );
+  activityHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.id === '0') {
+      return this.setState((state: stateType) => ({
+        btnState: !this.state.btnState
+      }));
+    }
+  };
+
+  render() {
+    return (
+      <Container divStyle="App">
+        <CheckBox
+          checking={this.sizeHandler}
+          activateBtn={this.activityHandler}
+        />
+        <HuePicker
+          color={this.state.btnColor.background}
+          onChangeComplete={this.colorHandler}
+        />
+        <Button
+          color={this.state.btnColor}
+          btnSize={this.state.buttonSize}
+          title={'Button'}
+          onClick={() => {}}
+          disabled={this.state.btnState}
+        />
+      </Container>
+    );
+  }
 }
 
 export default App;
