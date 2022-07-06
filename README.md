@@ -47,7 +47,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ![task](https://img.shields.io/badge/task-Button_component-blue)
 
-Write Input component.
+Write CheckBox component.
 - [ ] It could be in only three sizes: SM, M, and XL.
 - [x] It could be enabled or disabled.
 - [ ] It must accept - title, color, and handler.
