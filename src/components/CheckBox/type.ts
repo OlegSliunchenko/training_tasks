@@ -1,6 +1,9 @@
-import React from "react";
+import React from 'react';
 
-export interface HandlerType  {
-    checkingSize: (e:React.ChangeEvent<HTMLInputElement>)=>void;
-    activeButton: (e:React.ChangeEvent<HTMLInputElement>)=>void;
+export type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
+
+export interface ICheckBoxProps {
+  buttonSize: string;
+  checkingSize: (e: ChangeEvent) => void;
+  activeButton: (e: ChangeEvent) => void;
 }

@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-export type ContainerType = {
-    className: string;
-    children?: React.ReactNode;
+export interface IContainerProps {
+  className: string;
+  children?: React.ReactNode;
 }

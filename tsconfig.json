@@ -1,10 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "@components": ["./src/components"],
-      "@components/*": ["./src/components/*"]
-    },
     "target": "es5",
     "lib": [
       "dom",
@@ -27,5 +22,6 @@
   },
   "include": [
     "src"
-  ]
+  ],
+  "extends": "./tsconfig.paths.json"
 }

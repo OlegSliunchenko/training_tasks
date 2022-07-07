@@ -1,19 +1,25 @@
 import React from 'react';
-import {ButtonType} from "./type";
-import './style.css'
 
-export default function Button(props: ButtonType) {
-const {color, onClick, disabled = true, buttonSize, title} = props;
+import { IButtonProps } from './type';
 
-    return (
-        <button
-            type={"button"}
-            style={color}
-            onClick={onClick}
-            disabled={disabled}
-            className={buttonSize}
-        >
-            {title}
-        </button>
-    );
-}
+import './style.css';
+
+const Button: React.FC<IButtonProps> = ({
+  color,
+  handleClick,
+  buttonSize,
+  title,
+  disabled = true
+}: IButtonProps) => (
+  <button
+    type="button"
+    style={color}
+    onClick={handleClick}
+    disabled={disabled}
+    className={buttonSize}
+  >
+    {title}
+  </button>
+);
+
+export default Button;

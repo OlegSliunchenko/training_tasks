@@ -1,10 +1,11 @@
-export interface StyleType {
-    backgroundColor: string,
+export interface IStyle {
+  backgroundColor: string;
 }
-export interface ButtonType {
-    title: string;
-    color: StyleType;
-    onClick: () => void;
-    disabled?: boolean;
-    buttonSize: string;
+
+export interface IButtonProps {
+  title: string;
+  color: IStyle;
+  handleClick: () => void;
+  disabled?: boolean;
+  buttonSize: string;
 }

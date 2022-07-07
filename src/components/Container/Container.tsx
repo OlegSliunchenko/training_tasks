@@ -1,10 +1,10 @@
 import React from 'react';
-import {ContainerType} from "./type";
 
-export default function Container(props:ContainerType) {
-    const {className, children} = props;
+import { IContainerProps } from './type';
 
-    return (
-        <div className={className}>{children}</div>
-    );
-}
+const Container: React.FC<IContainerProps> = ({
+  className,
+  children
+}: IContainerProps) => <div className={className}>{children}</div>;
+
+export default Container;
